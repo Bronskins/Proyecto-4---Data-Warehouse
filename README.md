@@ -118,7 +118,7 @@ Tendras que agregar el header '**user-token**' para poder ejecutar las distintas
 
 Para obtener el JWT deberas hacer un request al endpoint de **Login** ingresando un usuario y contraseña en el body. Si el usuario existe en la base de datos, el servidor devolvera el token.
 
-![10](https://i.ibb.co/KytLpFn/37.png)
+![10](https://i.ibb.co/0sg0Lrc/3.jpg)
 
 
 ### Administradores
