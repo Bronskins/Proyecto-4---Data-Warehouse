@@ -114,7 +114,7 @@ Durante la instalacion de MySQL seguiremos los siguientes pasos:
 
 Tendras que agregar el header '**user-token**' para poder ejecutar las distintas operaciones. 
 
-![9](https://i.ibb.co/nkrF5Sg/15.png)
+![9](https://i.ibb.co/bm1QvBt/user-token.jpg)
 
 Para obtener el JWT deberas hacer un request al endpoint de **Login** ingresando un usuario y contraseña en el body. Si el usuario existe en la base de datos, el servidor devolvera el token.
 
@@ -134,7 +134,7 @@ Los usuarios normales pueden crear nuevos pedidos. Solo podran modificar informa
 
 Tambien puedes crear un usuario sin rol de administrador desde el endpoint **CREAR USUARIO**.
 
-![10](https://i.ibb.co/WgdDWsJ/36.png)
+![10](https://i.ibb.co/0j16fqr/Capture.jpg)
 
 # Swagger
 
