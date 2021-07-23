@@ -1,8 +1,8 @@
 # Proyecto 4 - Data Warehouse
 
-Funcionalidad **EXPORTAR CONTACTO**S fue omitida.
-Funcionalidad **SUBIR FOTO DE CONTACTO** fue omitida.
-Funcionalidad **AGREGAR TAGS DE BUSQUEDA** fue incluida.
+- Funcionalidad **EXPORTAR CONTACTO**S fue omitida.
+- Funcionalidad **SUBIR FOTO DE CONTACTO** fue omitida.
+- Funcionalidad **AGREGAR TAGS DE BUSQUEDA** fue incluida.
 
 ## Requerimientos 
 
