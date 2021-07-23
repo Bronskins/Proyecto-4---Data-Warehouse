@@ -93,9 +93,9 @@ Durante la instalacion de MySQL seguiremos los siguientes pasos:
 
 # Postman
 
-1. Dentro del repositorio encontraras el archivo **'Postman.JSON'** que puedes importar desde Postman para agregar los llamados a los distintos endpoints.
+1. Dentro del repositorio encontraras el archivo **'PostmanEndpoints.JSON'** que puedes importar desde Postman para agregar los llamados a los distintos endpoints.
 
-![5](https://i.ibb.co/BVqQnCB/11.png)
+![5](https://i.ibb.co/0M6RSDq/subir.jpg)
 
 2. Desde **Postman**, hacemos click en File y luego **Import**
 
