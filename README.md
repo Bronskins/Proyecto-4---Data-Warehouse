@@ -121,18 +121,21 @@ Para obtener el JWT deberas hacer un request al endpoint de **Login** ingresando
 ![10](https://i.ibb.co/0sg0Lrc/3.jpg)
 
 
-### Administradores
+### Perfil ADMINISTRADOR
 
-Los administradores podran realizar cualquier operacion CRUD pudiendo asi crear, modificar, eliminar u obtener todos los pedidos y usuarios. La base de datos incluye un usuario administrador con el cual loguearse para probar los endpoints:
+Los administradores podran realizar cualquier operacion CRUD pudiendo asi crear, modificar, eliminar u obtener: ciudades - regiones - paises - contactos - usuarios - compañias. La base de datos incluye un usuario administrador con el cual loguearse para probar los endpoints:
 
 - **Usuario**: Bronskins
 - **contraseña**: capo9090
 
-### Usuarios
+### Perfil BASICO
 
-Los usuarios normales pueden crear nuevos pedidos. Solo podran modificar informacion de su propio perfil y recibir los pedidos que el mismo haya hecho. No tienen permisos para crear o borrar nuevos productos o usuarios.
+Los perfiles basicos solo pueden gestionar los contactos, compañias y regiones. No pueden visualizar la seccion de 'Usuarios' para crear nuevos usuarios. Asi mismo, un middleware en los endpoints bloquean su acceso.
 
 Tambien puedes crear un usuario sin rol de administrador desde el endpoint **CREAR USUARIO**.
+
+* Profile 1 = BASICO
+* Profile 2 = ADMINISTRADOR
 
 ![10](https://i.ibb.co/0j16fqr/Capture.jpg)
 
