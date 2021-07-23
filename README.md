@@ -103,7 +103,7 @@ Durante la instalacion de MySQL seguiremos los siguientes pasos:
 
 3. Buscamos nuestro archivo Postman.JSON y hacemos click en **Import**
 
-![7](https://i.ibb.co/Wvpm18j/29.png)
+![7](https://i.ibb.co/jbJgvrB/2.jpg.png)
 ![9](https://i.ibb.co/DCXzTKY/30.png)
 
 4. Veremos nuestro listado de requests en Postman:
