@@ -1,5 +1,7 @@
 # Proyecto 4 - Data Warehouse
 
+La modalidad de trabajo seleccionada para el trabajo es **FREELANCE**
+
 - Funcionalidad **EXPORTAR CONTACTO**S fue omitida.
 - Funcionalidad **SUBIR FOTO DE CONTACTO** fue omitida.
 - Funcionalidad **AGREGAR TAGS DE BUSQUEDA** fue incluida.
