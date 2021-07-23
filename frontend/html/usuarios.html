@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/usuarios.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/siteIcon.png">
+    <title>Data Warehouse</title>
+</head>
+<body>
+    <nav id="navegator">
+    <div id="logo">
+        <img src="../assets/db.png" alt="">
+        Data Warehouse™
+    </div>
+
+    <div id="secciones">
+        <div>
+        <a href="home.html">Contactos</a>
+        </div>
+        <div>
+        <a href="usuarios.html" style="padding: 22px;
+        border-bottom: 4px solid rgb(255, 181, 44)">usuarios</a>
+        </div>
+        <div>
+        <a href="compañias.html">Compañias</a>
+        </div>
+        <div>
+        <a href="region.html">Region/Ciudad</a>
+        </div>
+        </div>
+    </nav>
+
+    <section id="login">
+
+        <h2>CREAR USUARIO</h2>
+        <img id="logindog" src="../assets/newUser.png" alt="Login">
+
+        <div id="forms">
+            <div class="formss">
+        <label for="nombre"></label> <p>Nombre: <span class="asterisco">*</span></p> 
+        <input id="nombre" name="nombre" type="text" placeholder="Nombre">
+        <img src="../assets/user.png" alt="Nombre">
+    </div>
+    <div class="formss">
+        <label for="apellido"></label><p>Apellido: <span class="asterisco">*</span></p> 
+        <input name="apellido" id="apellido" type="text" placeholder="Apellido">
+        <img src="../assets/apellido.png" alt="Apellido">
+    </div>
+    <div class="formss">
+        <label for="email"></label><p>Email: <span class="asterisco">*</span></p> 
+        <input name="email" id="email" type="email" placeholder="Email">
+        <img src="../assets/email.png" alt="Email">
+    </div>
+    <div class="formss">
+        <label for="perfil"></label><p>Perfil: <span class="asterisco">*</span></p> 
+        <select id="perfil">
+            <option>Seleccione un perfil</option>
+            <option>Administrador</option>
+            <option>Regular</option>
+        </select>
+    </div>
+    <div class="formss">
+        <label for="usuario"></label><p>Usuario: <span class="asterisco">*</span></p> 
+        <input id="usuario" type="text" placeholder="Usuario">
+        <img src="../assets/perfil.png" alt="Usuario">
+    </div>
+    <div class="formss">
+        <label for="contraseña"></label><p>Contraseña: <span class="asterisco">*</span></p>
+        <input name="contraseña" id="contraseña" type="password" placeholder="Contraseña">
+        <img src="../assets/pass.png" alt="Contraseña">
+    </div>
+    <div class="formss">
+        <label for="contraseña"></label> <p>Repetir Contraseña: <span class="asterisco">*</span></p> 
+        <input name="contraseña2" id="contraseña2" type="password" placeholder="Repetir Contraseña">
+        <img src="../assets/pass.png" alt="Contraseña">
+    </div class="formss">
+        </div>
+        <p id="mensaje">This is a dummy test.</p>
+        <button id="crear">CREAR</button>
+    </section>
+
+    <script src="../js/usuario.js"></script>
+</body>
+</html>

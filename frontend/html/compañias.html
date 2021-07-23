@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/compañias.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Syncopate:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Syncopate:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Padauk&display=swap" rel="stylesheet">
+    <link rel="icon" href="../assets/siteIcon.png">
+    <title>Data Warehouse</title>
+</head>
+
+<body>
+    <nav id="navegator">
+        <div id="logo">
+            <img src="../assets/db.png" alt="">
+            Data Warehouse™
+        </div>
+
+        <div id="secciones">
+            <div>
+                <a href="home.html">Contactos</a>
+            </div>
+            <div>
+                <a id="userTab" href="usuarios.html">Usuarios</a>
+            </div>
+            <div>
+                <a href="compañias.html" style="padding: 22px;
+        border-bottom: 4px solid rgb(255, 181, 44)">Compañias</a>
+            </div>
+            <div>
+                <a href="region.html">Region/Ciudad</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="login">
+        <div id="primero">
+            <div style="display: flex; align-items: center;">
+                <h2>COMPAÑIAS</h2>
+                <img style="width: 100px; height: 100px;" src="../assets/company.png" alt="Company">
+            </div>
+            <button id="agregar">AGREGAR</button>
+        </div>
+
+        <div id="seccion">
+
+            <div class="data2" id="template">
+                <div class="name">
+                    <h3>NOMBRE</h3>
+                </div>
+                <div class="country">
+                    <h3>PAIS<PAIS>
+                    </h3>
+                </div>
+                <div class="email">
+                    <h3>EMAIL</h3>
+                </div>
+                <div class="number">
+                    <h3>NUMERO</h3>
+                </div>
+                <div class="address">
+                    <h3>DIRECCION</h3>
+                </div>
+                <div class="actions">
+                    <h3>ACCIONES</h3>
+                </div>
+            </div>
+             
+        </div>
+
+
+        <div draggable="true" id="formCompany" class="formCompany prompt2">
+            <div class="closeTab" id="closeTab">
+                <p>X</p>
+            </div>
+
+            <h3 id="formTitle">NUEVA COMPAÑIA</h3>
+            <div class="formco">
+                <label for="nombre">Nombre:<span class="asterisco">*</span></label>
+                <input type="text" name="nombre" id="nombre" minlength="2" required>
+                <label for="pais">Ciudad: <span class="asterisco">*</span></label>
+                <select type="text" name="pais" id="pais" minlength="2" required></select>
+                <label for="email">Email:<span class="asterisco">*</span></label>
+                <input type="text" name="email" id="email" minlength="2" required>
+                <label for="numero">Numero:<span class="asterisco">*</span></label>
+                <input type="number" name="numero" id="numero" minlength="6" required>
+                <label for="direccion">Direccion:<span class="asterisco">*</span></label>
+                <input type="direccion" name="direccion" id="direccion" minlength="2" required>
+                <p id="mensaje"class="mensaje">Faltan campos por completar.</p>
+            </div>
+            <button id="agregar2">Agregar</button>
+            </div>
+            
+
+
+
+    </section>
+
+    <script src="../js/compañias.js"></script>
+</body>
+
+</html>

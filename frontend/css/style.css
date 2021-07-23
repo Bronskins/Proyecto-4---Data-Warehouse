@@ -1,0 +1,152 @@
+*{
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+#logo img {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 40px;
+    margin-right: 20px;
+}
+#logo{
+    display: flex;
+    align-items: center;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-left: 20px;
+    color: white;
+    text-shadow: 3px 5px 7px black;
+}
+
+body{
+    background-image: linear-gradient(180deg, rgb(58, 60, 75, 0.7)  0%, rgb(50, 52, 65, 0.7) 52%, rgb(58, 60, 75, 0.7) 100%),
+        url("../assets/wallpaper.jpg");
+        background-size: cover;
+}
+
+input{
+    height: 40px;
+}
+
+header{
+    background-color: rgba(22, 69, 155, 0.233);
+    border: 1px solid black;
+    height: 100px;
+    border-radius: 20px;
+}
+
+#forms{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 30px;
+}
+
+#login h2{
+    font-family: 'Syncopate', sans-serif;
+    text-align: center;
+    color: rgb(58, 60, 75);
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-shadow: 0px 0px 3px black;
+}
+
+#forms input{
+    height: 50px;
+    background-color: rgb(58, 60, 75);
+    box-shadow: 0px 0px 5px black;
+    width: 300px;
+}
+
+#logindog{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: black 1px 1px 20px;
+    border-radius: 60px;
+}
+#password{
+    margin-top: 20px;
+}
+#forms input::placeholder{
+    color: white;
+    padding-left: 15px;
+}
+
+#forms div{
+    position: relative;
+}
+#forms div img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 100px;
+}
+
+#mensaje{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: 'Syncopate', sans-serif;
+    display: none;
+    text-shadow: 0px 0px 8px black;
+}
+
+#login{
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 4%;
+    box-shadow: black 0px 30px 100px 10px;
+    background-color: #ffffff;
+    background-image: linear-gradient(
+315deg
+, #ffffff 0%, #d7e1ec 74%);
+    border-radius: 20px;
+}
+
+#login:hover{
+    width: 550px;
+}
+
+button{
+    display: block;
+    margin: 0 auto;
+    color: white;
+    font-weight: bolder;
+    font-family: 'Syncopate', sans-serif;
+    margin-top:50px;
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    border: 1px solid #DC6254;
+    box-shadow: 0px 0px 3px #c74738;
+    background: rgb(237,120,107);
+    cursor: pointer;
+    transition: 0.5s;
+    text-shadow: black 0px 2px 8px;
+}
+
+button:hover{
+    font-size: 18px;
+    font-weight: bolder;
+    box-shadow: 0px 0px 10px  #c74738;
+    background: rgb(204, 73, 59);
+}
+
+button:active{
+    transform: translateY(10px);
+    background: rgb(255, 229, 181);
+    border: 1px solid rgb(224, 194, 138);
+    box-shadow: 0px 0px 10px  rgb(224, 194, 138);
+    color: rgb(223, 95, 95);
+}
