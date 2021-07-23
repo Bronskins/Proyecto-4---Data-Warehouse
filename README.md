@@ -149,6 +149,4 @@ Tambien puedes crear un usuario sin rol de administrador desde el endpoint **CRE
 
 ![6](https://i.ibb.co/xJNHPtB/16.png)
 
-3. Buscamos nuestro archivo **Spec.Yaml** y lo seleccionamos. Deberiamos ver la documentacion de nuestra API:
-
-![7](https://i.ibb.co/s3Cf5DR/18.png)
+3. Buscamos nuestro archivo **Spec.Yaml** y lo seleccionamos. Deberiamos ver la documentacion de nuestra API.
