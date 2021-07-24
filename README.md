@@ -134,7 +134,7 @@ Los administradores podran realizar cualquier operacion CRUD pudiendo asi crear,
 
 Los perfiles basicos solo pueden gestionar los contactos, compañias y regiones. No pueden visualizar la seccion de 'Usuarios' para crear nuevos usuarios. Asi mismo, un middleware en los endpoints bloquean su acceso.
 
-Tambien puedes crear un usuario sin rol de administrador desde el endpoint **CREAR USUARIO**.
+Tambien puedes crear un usuario desde el endpoint **CREAR USUARIO**.
 
 * Profile 1 = BASICO
 * Profile 2 = ADMINISTRADOR
