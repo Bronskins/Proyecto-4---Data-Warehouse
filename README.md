@@ -152,3 +152,5 @@ Tambien puedes crear un usuario desde el endpoint **CREAR USUARIO**.
 ![6](https://i.ibb.co/xJNHPtB/16.png)
 
 3. Buscamos nuestro archivo **Spec.Yaml** y lo seleccionamos. Deberiamos ver la documentacion de nuestra API.
+
+![11](https://i.ibb.co/VTsvMK8/Capture.jpg)
