@@ -1,0 +1,1059 @@
+swagger: '2.0'
+info:
+  description: >-
+    Este es el API para el Proyecto 4 - Data Warehouse. El mismo contiene
+    operaciones CRUD para las tablas de contactos, compañias, regiones, paises, ciudades, canales, etc. Un usuario administrador adicionalmente podra crear nuevos usuarios para acceder a la aplicacion.
+  version: 1.0.0
+  title: Data Warehouse 
+  contact:
+    email: bronskins@hotmail.com
+host: 'localhost:4000'
+basePath: /api/v1
+tags:
+  - name: users
+    description: 'Obtener, crear, modificar o eliminar usuarios.'
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+  - name: cities
+    description: 'Obtener, crear, modificar o eliminar ciudades.'
+  - name: region
+    description: Obtener, crear, modificar o eliminar regiones.
+  - name: login
+    description: Endpoint de autenticacion del usuario.
+  - name: countries
+    description: Obtener, crear, modificar o eliminar paises.
+  - name: companies
+    description: Obtener, crear, modificar o eliminar companias.
+  - name: channels
+    description: Obtener, crear, modificar o eliminar companias.
+  - name: contacts
+    description: Obtener, crear, modificar o eliminar contactos.
+schemes:
+  - http
+paths:
+  /users:
+    get:
+      tags:
+        - users 
+      summary: Obtener todos los usuarios.
+      description: >-
+        Este es el endpoint para ver todos los usuarios existentes.
+      operationId: obtenerUsuario
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id_users:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+                lastName:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                password: 
+                  type: string
+                Profile:
+                  type: object
+                  properties:
+                    id_profiles:
+                      type: integer
+                      format: int64
+                    name:
+                      type: string
+    post:
+      tags:
+        - users
+      summary: Crear un nuevo usuario.
+      description: >-
+        Este es el endpoint para crear un nuevo usuario. Pueden tener dos perfiles distintos, administrador (2) o basico (1).
+      operationId: crearUsuario
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Objeto del usuario a crear.
+          required: true
+          schema:
+            type: object
+            properties: 
+              username:
+                type: "string"
+              name:
+                type: "string"
+              lastName:
+                type: "string"
+              email:
+                type: "string"
+              password:
+                type: "string"
+              profile:
+                type: "integer"
+      responses:
+        '200':
+          description: Todo OK.
+        '400':
+          description: Bad Request. Falta el JWT Token o algun valor dentro del body.
+  /users/{idUser}:
+    delete:
+      tags:
+        - users
+      summary: Borrar un usuario existente.
+      description: >-
+        Este es el endpoint para eliminar un usuario existente. Require el ID del mismo en el URL.
+      operationId: borrarUser
+      produces:
+        - application/json
+      parameters:
+        - name: idUser
+          in: path
+          description: El ID del usuario existente
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: object
+            properties:
+              success:
+                type: string
+    put:
+      tags:
+        - users
+      summary: Actualizar un usuario existente
+      description: >-
+        Este es el endpoint para actualizar un usuario ya existente. Toma el ID
+          de un usuario ya existente para cambiar cualquiera de los valores. Solo
+          los administradores pueden ejecutar este endpoint.
+      operationId: actualizarUser
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: idUser
+          required: true
+          type: integer
+          description: ID del usuario ya existente.
+        - in: body
+          name: body
+          description: Objeto del usuario a actualizar.
+          schema:
+           type: object
+           properties:
+            username:
+              type: string
+            name:
+              type: string
+            lastName:
+              type: string
+            email:
+              type: string
+            password:
+              type: string
+            profile:
+              type: integer
+              format: int64
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+  /region:
+    get:
+      tags:
+        - region
+      summary: Obtener regiones
+      description: >-
+        Con este endpoint se obtiene las regiones.
+      operationId: verUsuario
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Operacion Exitosa
+          schema:
+            properties:
+              id_region:
+                type: "integer"
+              name: 
+                type: "string"
+              Countries:
+                type: "object"
+                properties: 
+                  id_countries:
+                    type: "integer"
+                  name: 
+                    type: "string"
+                  Cities:
+                    type: "object"
+                    properties:
+                      id_cities:
+                        type: "integer"
+                      name:
+                        type: "string"
+    post:
+      tags:
+        - region
+      summary: Crear una nueva region
+      description: >-
+        Con este endpoint se creara una nueva region.
+      operationId: crearRegion
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Objeto del usuario a crear.
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: object
+            properties:
+              id_region:
+                type: integer
+                format: int64
+              name:
+                type: string
+              createdAt:
+                type: string
+              updatedAt:
+                type: string
+        '400':
+          description: Algun valor faltante dentro del body
+  /region/{idRegion}:
+    put:
+      tags:
+        - region
+      summary: Actualizar una region ya existente.
+      description: >-
+        Con este endpoint se actualiza algun valor de una region ya existente.
+        Tome el ID de una region ya existente para modificar cualquiera de sus
+        valores.
+      operationId: actualizarRegion
+      produces:
+        - application/json
+      parameters:
+        - name: idRegion
+          in: path
+          description: ID de la region existente.
+          required: true
+          type: integer
+          maximum: 10
+          minimum: 1
+          format: int64
+        - name: body
+          in: body
+          required: true
+          schema:
+            properties:
+              name: 
+                type: "string"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - region
+      summary: Borrar un usuario existente.
+      description: >-
+        Con este endpoint se eliminara un usuario existente. Solo un
+        administrador puede ejecutar este endpoint.
+      operationId: borrarRegion
+      produces:
+        - application/json
+      parameters:
+        - name: idRegion
+          in: path
+          description: ID del usuario existente
+          required: true
+          type: integer
+          minimum: 1
+          format: int64
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "object"
+            properties: 
+              success:
+                type: "string"
+  /cities:
+    get:
+      tags:
+        - cities
+      summary: Obtener todas las ciudades disponibles.
+      description: 'Con este endpoint se obtienen todas las ciudades disponibles.'
+      operationId: obtenerCities
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id_cities:
+                  type: "integer"
+                name:
+                  type: "string"
+                Country:
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+                    Region:
+                      type: "object"
+                      properties:
+                        name:
+                          type: "string"
+    post:
+      tags:
+      - cities
+      description: "Endpoint para crear una nueva ciudad"
+      summary: Crear una nueva ciudad
+      parameters:
+        - name: body
+          in: body
+          description: Body con el usuario y contraseña.
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+              country:
+                type: "integer"
+      responses:
+        '200':
+          description: La respuesta devuelve el JSON Web Token y el tipo de perfil del usuario.
+          schema:
+            properties:
+              id_cities:
+                type: "integer"
+              name:
+                type: "string"
+              country: 
+                type: "integer"
+              updatedAt:
+                type: "string"
+              createdAt:
+                type: "string"
+        '400':
+          description: Bad Request. Falta algun valor dentro del body.
+  /cities/{idCity}:
+    put:
+      tags:
+        - cities
+      summary: Actualizar una ciudad existente
+      description: 'Con este endpoint se puede actualizar una ciudad existente.'
+      operationId: actualizarCity
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: idCity
+          description: ID de la ciudad existente.
+          required: true
+          minimum: 1
+          format: int64
+          type: "integer"
+        - in: body
+          name: body
+          description: Objeto del producto a actualizar.
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name: 
+                type: "string"
+              country:
+                type: "integer"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - cities
+      summary: Borrar una ciudad existente.
+      description: 'Con este endpoint se elimina una ciudad.'
+      operationId: borrarCity
+      produces:
+        - application/json
+      parameters:
+        - name: idCity
+          in: path
+          description: El ID de la ciudad existente
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            properties:
+              success:
+                type: "string"
+  /login:
+    post:
+      tags:
+      - login
+      summary: Autenticarse para obtener el JSON Web Token.
+      description: "Endpoint para autenticarse y recibir el JWT"
+      parameters:
+        - name: body
+          in: body
+          description: Body con el usuario y contraseña.
+          schema:
+            type: "object"
+            properties:
+              username:
+                type: "string"
+              password:
+                type: "string"
+      responses:
+        '200':
+          description: La respuesta devuelve el JSON Web Token y el tipo de perfil del usuario.
+          schema:
+            properties:
+              token:
+                type: "string"
+              profile:
+                type: "string"
+        '400':
+          description: Bad Request. El usuario o contraseña no esta incluido.
+        '404':
+          description: Not Found. Usuario o contraseña no es correcta.
+  /countries:
+    get:
+      tags:
+      - countries
+      summary: Obtener todos los paises
+      description: "Endpoint para recibir todos los paises disponibles"
+      operationId: obtenerCountries
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id_countries:
+                  type: "integer"
+                name:
+                  type: "string"
+                Region:
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+                Cities: 
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+    post:
+      tags:
+      - countries
+      description: "Endpoint para crear un nuevo pais."
+      summary: Crear un nuevo pais.
+      parameters:
+        - name: body
+          in: body
+          description: Body con la region y el nombre del pais.
+          schema:
+            type: "object"
+            properties:
+              region:
+                type: "integer"
+              name:
+                type: "string"
+              
+      responses:
+        '200':
+          description: La respuesta devuelve los detalles de la ciudad creada
+          schema:
+            properties:
+              id_countries:
+                type: "integer"
+              name:
+                type: "string"
+              region:
+                type: "integer"
+              updatedAt:
+                type: "string"
+              createdAt:
+                type: "string"
+        '400':
+          description: Bad Request. Falta algun valor en el body.
+  /countries/{idCountry}:
+    put:
+      tags:
+        - countries
+      summary: Actualizar un pais ya existente.
+      description: 'Con este endpoint se puede actualizar un pais ya existente.'
+      operationId: actualizarPais
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: idCountry
+          description: ID del pais existente.
+          required: true
+          minimum: 1
+          format: int64
+          type: "integer"
+        - in: body
+          name: body
+          description: Objeto del producto a actualizar.
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name: 
+                type: "string"
+              region:
+                type: "integer"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - countries
+      summary: Borrar un pais existente.
+      description: 'Con este endpoint se elimina un pais.'
+      operationId: borrarCountry
+      produces:
+        - application/json
+      parameters:
+        - name: idCountry
+          in: path
+          description: El ID del pais ya existente
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            properties:
+              success:
+                type: "string"
+  /companies:
+    get:
+      tags:
+      - companies
+      summary: Obtener todas las compañias.
+      description: "Endpoint para recibir todas las compañias disponibles"
+      operationId: obtenerCompanies
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id_companies:
+                  type: "integer"
+                name:
+                  type: "string"
+                address:
+                  type: "string"
+                number:
+                  type: "integer"
+                email:
+                  type: "string"
+                  properties:
+                    name:
+                      type: "string"
+                City: 
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+                    Country:
+                      type: "object"
+                      properties:
+                        name:
+                          type: "string"
+                        Region:
+                          type: "object"
+                          properties:
+                            name:
+                              type: "string"
+    post:
+      tags:
+      - companies
+      description: "Endpoint para crear una nueva compañia"
+      summary: Crear una nueva compañia.
+      parameters:
+        - name: body
+          in: body
+          description: Body con los datos de la compañia.
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+              address:
+                type: "string"
+              city:
+                type: "integer"
+              email:
+                type: "string"
+              number:
+                type: "integer"
+      responses:
+        '200':
+          description: La respuesta devuelve los detalles de la ciudad creada
+          schema:
+            properties:
+              id_companies:
+                type: "integer"
+              name:
+                type: "string"
+              city:
+                type: "integer"
+              email:
+                type: "string"
+              address:
+                type: "string"
+              number:
+                type: "string"
+              updatedAt:
+                type: "string"
+              createdAt:
+                type: "string"
+        '400':
+          description: Bad Request. Falta algun valor en el body.
+  /companies/{idCompany}:
+    put:
+      tags:
+        - companies
+      summary: Actualizar una compania ya existente.
+      description: 'Con este endpoint se puede actualizar una compania ya existente.'
+      operationId: actualizarCompany
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: idCompany
+          description: ID de la compañia existente.
+          required: true
+          minimum: 1
+          format: int64
+          type: "integer"
+        - in: body
+          name: body
+          description: Objeto del producto a actualizar.
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name: 
+                type: "string"
+              address:
+                type: "string"
+              city:
+                type: "integer"
+              email:
+                type: "string"
+              number:
+                type: "integer"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - companies
+      summary: Borrar una compania existente.
+      description: 'Con este endpoint se elimina una compañia.'
+      operationId: borrarCompany
+      produces:
+        - application/json
+      parameters:
+        - name: idCompany
+          in: path
+          description: El ID de la compañia ya existente
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            properties:
+              success:
+                type: "string"
+  /channels:
+    get:
+      tags:
+      - channels
+      summary: Obtener todos los canales.
+      description: "Endpoint para recibir todos los canales disponibles"
+      operationId: obtenerChannels
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id_channels:
+                  type: "integer"
+                name:
+                  type: "string"
+    post:
+      tags:
+      - channels
+      description: "Endpoint para crear un nuevo canal"
+      summary: Crear un nuevo canal.
+      parameters:
+        - name: body
+          in: body
+          description: Body con el nombre del canal.
+          schema:
+            type: "object"
+            properties:
+              name:
+                type: "string"
+      responses:
+        '200':
+          description: La respuesta devuelve los detalles del canal creado.
+          schema:
+            properties:
+              id_channels:
+                type: "integer"
+              name:
+                type: "string"
+              updatedAt:
+                type: "string"
+              createdAt:
+                type: "string"
+        '400':
+          description: Bad Request. Falta algun valor en el body.
+  /channels/{IdChannel}:
+    put:
+      tags:
+        - channels
+      summary: Actualizar un canal ya existente.
+      description: 'Con este endpoint se puede actualizar un canal ya existente.'
+      operationId: actualizarChannel
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: IdChannel
+          description: ID del canal ya existente.
+          required: true
+          minimum: 1
+          format: int64
+          type: "integer"
+        - in: body
+          name: body
+          description: Objeto del canal a actualizar.
+          required: true
+          schema:
+            type: "object"
+            properties:
+              name: 
+                type: "string"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - channels
+      summary: Borrar un canal existente.
+      description: 'Con este endpoint se elimina un canal.'
+      operationId: borrarChannel
+      produces:
+        - application/json
+      parameters:
+        - name: IdChannel
+          in: path
+          description: El ID de la compañia ya existente
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            properties:
+              success:
+                type: "string"
+  /contacts:
+    get:
+      tags:
+      - contacts
+      summary: Obtener todos los contactos.
+      description: "Endpoint para recibir todos los contactos disponibles"
+      operationId: obtenerContacts
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Operacion exitosa.
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                id_contacts:
+                  type: "integer"
+                firstName:
+                  type: "string"
+                lastName:
+                  type: "string"
+                email:
+                  type: "string"
+                address:
+                  type: "string"
+                interest:
+                  type: "integer"
+                City:
+                  type: "object"
+                  properties:
+                    id_cities:
+                      type: "integer"
+                    name: 
+                      type: "string"
+                    country: 
+                      type: "integer"
+                    Country:
+                      type: "object"
+                      properties:
+                        id_region:
+                          type: "integer"
+                        name:
+                          type: "string"
+                Role:
+                  type: "object"
+                  properties:
+                    name:
+                      type: "string"
+                Company:
+                  type: "object"
+                  properties:
+                    name: 
+                      type: "string"
+                    address: 
+                      type: "string"
+                    number:
+                      type: "integer"
+                    email:
+                      type: "string"
+                Media:
+                  type: "object"
+                  properties:
+                    id_media:
+                      type: "integer"
+                    channeldetail:
+                      type: "string"
+                    Channel:
+                      type: "object"
+                      properties:
+                        id_channels:
+                          type: "integer"
+                        name:
+                          type: "string"
+                    Preference:
+                      type: "object"
+                      properties:
+                        id_preferences: 
+                          type: "integer"
+                        name:
+                          type: "string"
+                
+    post:
+      tags:
+      - contacts
+      description: "Endpoint para crear un nuevo contacto"
+      summary: Crear un nuevo contacto.
+      parameters:
+        - name: body
+          in: body
+          description: Body con los valores del nuevo contacto.
+          schema:
+            type: "object"
+            properties:
+              firstName:
+                type: "string"
+              lastName:
+                type: "string"
+              email:
+                type: "string"
+              address:
+                type: "string"
+              interest:
+                type: "integer"
+              role:
+                type: "integer"
+              country:
+                type: "integer"
+              company:
+                type: "integer"
+              city:
+                type: "integer"
+      responses:
+        '200':
+          description: La respuesta devuelve los detalles del contacto creado.
+          schema:
+            properties:
+              id_contacts:
+                type: "integer"
+              firstName:
+                type: "string"
+              lastName:
+                type: "string"
+              email:
+                type: "string"
+              address:
+                type: "string"
+              interest:
+                type: "integer"
+              role:
+                type: "integer"
+              country:
+                type: "integer"
+              company:
+                type: "integer"
+              city:
+                type: "integer"
+              updatedAt:
+                type: "string"
+              createdAt:
+                type: "string"
+        '400':
+          description: Bad Request. Falta algun valor en el body.
+  
+  /contacts/{IdContacts}:
+    put:
+      tags:
+        - contacts
+      summary: Actualizar un contacto ya existente.
+      description: 'Con este endpoint se puede actualizar un contacto ya existente.'
+      operationId: actualizarContact
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: IdContacts
+          description: ID del contacto ya existente.
+          required: true
+          minimum: 1
+          format: int64
+          type: "integer"
+        - in: body
+          name: body
+          description: Objeto del contacto a actualizar.
+          required: true
+          schema:
+            type: "object"
+            properties:
+              firstName: 
+                type: "string"
+              lastName:
+                type: "string"
+              email:
+                type: "string"
+              address:
+                type: "string"
+              interest:
+                type: "integer"
+              role: 
+                type: "integer"
+              country:
+                type: "integer"
+              company:
+                type: "integer"
+              city:
+                type: "integer"
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            type: "object"
+            properties:
+              success:
+                type: "string"
+    delete:
+      tags:
+        - contacts
+      summary: Borrar un contacto existente.
+      description: 'Con este endpoint se elimina un contacto.'
+      operationId: borrarContact
+      produces:
+        - application/json
+      parameters:
+        - name: IdContacts
+          in: path
+          description: El ID del contacto ya existente
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Operacion exitosa
+          schema:
+            properties:
+              success:
+                type: "string"
+   
